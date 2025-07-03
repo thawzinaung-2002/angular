@@ -1,6 +1,17 @@
 <h1>Welcome to {{hotelName}}</h1>
 <div [hidden]="hideRooms">
     No. of Rooms :
-<div [innerText]="numsOfRooms"></div>
+<div [innerText]="numsOfRooms"
+[ngStyle]="{
+    'color' : rooms.availableRooms > 0 ? 'green' : 'red'
+}"
+></div>
 </div>
+
+
+
+<!-- {{roomList | json}} -->
+
+<hinv-rooms-list [rooms]="roomList"></hinv-rooms-list>
+
 <button (click)="toggle()">Click me</button>

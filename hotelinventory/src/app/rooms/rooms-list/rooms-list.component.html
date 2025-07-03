@@ -1,0 +1,21 @@
+<div *ngIf="rooms.length > 0 ">
+    Rooms List
+    <table class="table-auto">
+        <tr>
+            <td>Room No.</td>
+            <td>Room Type</td>
+            <td>Room Price</td>
+            <td>Room Amenities</td>
+            <td>Checkin Time</td>
+            <td>Rating</td>
+        </tr>
+        <tr *ngFor="let room of rooms; let e=even; let o=odd" [ngClass]="">
+            <td>{{room.roomNo}}</td>
+            <td>{{room.roomType}}</td>
+            <td>{{room.price  | currency : 'MMK'}}</td>
+            <td>{{room.amenities | lowercase}}</td>
+            <td>{{room.checkinTime | date : 'short'}}</td>
+            <td> {{room.rating | number : '1.1-2' : 'en-us'}}</td>
+        </tr>
+    </table>
+</div>

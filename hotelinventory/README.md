@@ -57,3 +57,25 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# Notes
+
+## Directives -> Structural Vs Attribute Directive
+*ngIf, *ngFor -> Structural : Modify dom like remove or delete
+ngClass, ngStyle -> Attribute : No modify dom
+
+
+## Pipe
+Pipe are used for data transformation like formatting. It's change original object.
+eg. DatePipe,...
+
+## Lifecycle
+All lifeycle has interface.
+After constructor -> ngOnit is called.
+Constructor should use only for injection.
+
+
+
+## Component Communication
+
