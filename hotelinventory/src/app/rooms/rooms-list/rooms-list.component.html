@@ -1,5 +1,5 @@
 <div *ngIf="rooms.length > 0 ">
-    Rooms List
+   <h1>{{title}}</h1>
     <table class="table-auto">
         <tr>
             <td>Room No.</td>
@@ -8,6 +8,7 @@
             <td>Room Amenities</td>
             <td>Checkin Time</td>
             <td>Rating</td>
+            <td>Select Room</td>
         </tr>
         <tr *ngFor="let room of rooms; let e=even; let o=odd" [ngClass]="">
             <td>{{room.roomNo}}</td>
@@ -16,6 +17,11 @@
             <td>{{room.amenities | lowercase}}</td>
             <td>{{room.checkinTime | date : 'short'}}</td>
             <td> {{room.rating | number : '1.1-2' : 'en-us'}}</td>
+            <td>
+                <button (click)="selectedRoom(room)">
+                    Select
+                </button>
+            </td>
         </tr>
     </table>
 </div>

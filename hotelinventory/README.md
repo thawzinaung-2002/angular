@@ -79,3 +79,31 @@ Constructor should use only for injection.
 
 ## Component Communication
 
+Smart Vs Dump Component
+@Input(), @Output()
+
+** Rendering : Browser -> Properties -> Click + Sign -> Rendering -> Paint Flashing
+** Angular dev tools for debugging
+ changeDetection => OnDefault, OnPush
+OnDefault -> Changes from Parent effect to Child
+OnPush -> 
+- to make sure not modify some data internally in this component (@Input , @Output)
+- Immutability when passing data 
+
+OnChanges Interface
+- can apply only if @Input property
+- SimpleChanges detect changes
+
+DoCheck Interface
+- avoid as much as possible
+- tracking changes and do if match all application
+
+ViewChild & AfterViewInit
+- ViewChild can access component properties like @Input and @Output
+- status : true | false
+- true -> child will use parent ngOnit
+- false -> ngOnit will undefined and AfterViewInit will see assign value
+- AfterViewInit is after all assigned or initialized of itself or others in its own.
+
+
+AfterViewChecked => 6:00
