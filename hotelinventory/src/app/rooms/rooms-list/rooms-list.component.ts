@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { RoomList } from '../rooms';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './rooms-list.component.css',
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomsListComponent implements OnInit, OnChanges{
+export class RoomsListComponent implements OnInit, OnChanges, OnDestroy{
+  ngOnDestroy(): void {
+    console.log("On destroy is called");
+  }
 
 
   ngOnChanges(changes: SimpleChanges): void {

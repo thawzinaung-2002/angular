@@ -98,12 +98,26 @@ DoCheck Interface
 - avoid as much as possible
 - tracking changes and do if match all application
 
-ViewChild & AfterViewInit
+ViewChild | ViewChildren & AfterViewInit
 - ViewChild can access component properties like @Input and @Output
 - status : true | false
 - true -> child will use parent ngOnit
 - false -> ngOnit will undefined and AfterViewInit will see assign value
 - AfterViewInit is after all assigned or initialized of itself or others in its own.
+- Can access component, ng-tempate, html tag and modify those.
+- To access same multiple use viewchildren in AfterViewInit -> static false not work in viewchildren but work in viewchild
+to call in ngonit
 
 
-AfterViewChecked => 6:00
+AfterViewChecked
+- detect changes AfterViewInit 
+
+AfterContentInit
+- After content is initialized, 
+use with <ng-content></ng-content>
+use select="selectors" to customize component in content.
+@ViewContent is for AfterContentInit.
+
+
+OnDestroy
+- To destroy all subscribtions or sessions or storage for performance
