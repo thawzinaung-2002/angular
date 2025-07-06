@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'hinv-rooms-list',
-  imports: [CommonModule],
   templateUrl: './rooms-list.component.html',
   styleUrl: './rooms-list.component.css',
   // changeDetection: ChangeDetectionStrategy.OnPush
+  standalone: false
 })
 export class RoomsListComponent implements OnInit, OnChanges, OnDestroy{
   ngOnDestroy(): void {

@@ -61,6 +61,10 @@ For more information on using the Angular CLI, including detailed command refere
 
 # Notes
 
+For Creating with Module.ts file
+ng new projectname/file name --no-standalone
+
+
 ## Directives -> Structural Vs Attribute Directive
 *ngIf, *ngFor -> Structural : Modify dom like remove or delete
 ngClass, ngStyle -> Attribute : No modify dom
@@ -121,3 +125,30 @@ use select="selectors" to customize component in content.
 
 OnDestroy
 - To destroy all subscribtions or sessions or storage for performance
+
+
+Depedency Injection 
+- When service inject : first find in boostrap module of main.js defined
+- depedency injection should take in constructor with private modifier
+- providedIn -> root, any, platform
+- providedIn can be with @Injectable decorator or providers in @NgModule 
+- root : get a single service acrooss (Singleton)
+- When no Singleton or own instance, put it your own component with providers array
+- when service inject, it will find parent of parent till to top module
+- when not found, it will go nullinjectorerror
+
+
+Resolution Modifiers ()
+- @Self DI , only this service available here (providers : [DI]) and when no found throws exception
+- @Self decorator with service injection will check only its component
+- @SkipSelf() will skip self but not parent of parent, rarely to use
+- @Optional() DI, will use only in dev but not in production
+- When use DI with @Optional() and remove providedIn, it will not throw exception
+- @Host() DI is like that @Self
+
+DI Providers
+- Class Based Providers (with @Injectable Decorator class)
+- Value Providers (Objects as a service)
+- Factory
+
+7:41

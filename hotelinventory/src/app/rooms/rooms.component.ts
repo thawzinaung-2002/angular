@@ -3,12 +3,13 @@ import { Room, RoomList } from './rooms';
 import { CommonModule } from '@angular/common';
 import { RoomsListComponent } from "./rooms-list/rooms-list.component";
 import { HeaderComponent } from "../header/header.component";
+import { RoomsService } from './services/rooms.service';
 
 @Component({
   selector: 'hinv-rooms',
-  imports: [CommonModule, RoomsListComponent, HeaderComponent],
   templateUrl: './rooms.component.html',
-  styleUrl: './rooms.component.css'
+  styleUrls: ['./rooms.component.css'],
+  standalone: false
 })
 export class RoomsComponent implements OnInit, DoCheck, AfterViewInit, AfterViewChecked {
   ngAfterViewChecked(): void {
@@ -41,54 +42,14 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit, AfterView
   title: string = 'Room List';
   roomList: RoomList[] = [];
 
+  // roomService = new RoomsService();
+
+  constructor(private roomsService: RoomsService) {}
+
   ngOnInit(): void {
 
     // console.log(this.headerComponent);
-
-    this.roomList = [
-      {
-        roomNo: 1,
-        roomType: "Deluxe Room",
-        amenities: "Air Con",
-        price: 500,
-        photos: "",
-        checkinTime: new Date("11-Nov-2025"),
-        checkoutTime: new Date("11-Dec-2025"),
-        rating: 1.2
-      },
-      {
-        roomNo: 2,
-        roomType: "Deluxe Room",
-        amenities: "Air Con",
-        price: 500,
-        photos: "",
-        checkinTime: new Date("11-Nov-2025"),
-        checkoutTime: new Date("11-Dec-2025"),
-        rating: 2.5
-      },
-      {
-        roomNo: 3,
-        roomType: "Deluxe Room",
-        amenities: "Air Con",
-        price: 500,
-        photos: "",
-        checkinTime: new Date("11-Nov-2025"),
-        checkoutTime: new Date("11-Dec-2025"),
-        rating: 3.5
-      },
-      {
-        roomNo: 4,
-        roomType: "Deluxe Room",
-        amenities: "Air Con",
-        price: 500,
-        photos: "",
-        checkinTime: new Date("11-Nov-2025"),
-        checkoutTime: new Date("11-Dec-2025"),
-        rating: 5.0
-      }
-    ];
-
-
+    this.roomList = this.roomsService.getRooms();
   }
 
 

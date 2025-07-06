@@ -1,14 +1,18 @@
-import { AfterContentInit, Component, ContentChild, OnInit } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, Host, OnInit } from '@angular/core';
 import { EmployeeComponent } from '../employee/employee.component';
+import { RoomsService } from '../rooms/services/rooms.service';
 
 @Component({
   selector: 'hinv-container',
-  imports: [],
   templateUrl: './container.component.html',
-  styleUrl: './container.component.css'
+  styleUrl: './container.component.css',
+  providers: [RoomsService],
+  standalone: false
 })
 export class ContainerComponent implements OnInit, AfterContentInit{
 
+
+  constructor(@Host() private roomsService: RoomsService) {}
 
   @ContentChild(EmployeeComponent) employee!: EmployeeComponent;
 
