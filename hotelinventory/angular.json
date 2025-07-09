@@ -68,10 +68,14 @@
               "buildTarget": "hotelinventory:build:production"
             },
             "development": {
-              "buildTarget": "hotelinventory:build:development"
+              "buildTarget": "hotelinventory:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"

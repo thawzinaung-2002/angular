@@ -8,10 +8,11 @@ import { RoomsComponent } from "./rooms/rooms.component";
 import { APP_CONFIG, APP_SERVICE_CONFIG } from "./AppConfig/appconfig.service";
 import { HeaderComponent } from "./header/header.component";
 import { RoomsListComponent } from "./rooms/rooms-list/rooms-list.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations: [AppComponent, RoomsComponent, ContainerComponent, EmployeeComponent, HeaderComponent, RoomsListComponent],
-    imports: [BrowserModule, CommonModule],
+    imports: [BrowserModule, CommonModule, HttpClientModule],
     providers: [
         {
             provide: APP_SERVICE_CONFIG,
