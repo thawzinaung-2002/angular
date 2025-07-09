@@ -6,6 +6,8 @@ import { ContainerComponent } from './container/container.component';
 import { EmployeeComponent } from "./employee/employee.component";
 import { LoggerService } from './logger.service';
 import { localStorageToken } from '../../localstorage.token';
+import { InitService } from './init.service';
+
 
 @Component({
   selector: 'hinv-root',

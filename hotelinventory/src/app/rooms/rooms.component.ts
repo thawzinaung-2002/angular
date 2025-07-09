@@ -5,6 +5,7 @@ import { RoomsListComponent } from "./rooms-list/rooms-list.component";
 import { HeaderComponent } from "../header/header.component";
 import { RoomsService } from './services/rooms.service';
 import { Observable } from 'rxjs';
+import { HttpEventType, HttpHeaderResponse, HttpResponse, HttpStatusCode } from '@angular/common/http';
 
 @Component({
   selector: 'hinv-rooms',
@@ -55,11 +56,33 @@ export class RoomsComponent implements OnInit, DoCheck, AfterViewInit, AfterView
 
   constructor(private roomsService: RoomsService) {}
 
+  totalBytes = 0;
   ngOnInit(): void {
+
+    this.roomsService.getPhotos().subscribe((event) =>  {
+      switch(event.type) {
+        case HttpEventType.UploadProgress: {
+          console.log("Upload Progress");
+          break;
+        }
+        case HttpEventType.ResponseHeader: {
+          console.log("Response Header");
+          break;
+        }
+        case HttpEventType.DownloadProgress: {
+          this.totalBytes = event.loaded;
+          break;
+        }
+        case HttpEventType.Response: {
+          console.log(event.body);
+          break;
+        }
+      }
+    });
 
     this.stream.subscribe(data => console.log(data));
 
-    this.roomsService.getRooms()
+    this.roomsService.getRooms$()
     .subscribe((resp) => {
       this.roomList = resp;
     }, error => {

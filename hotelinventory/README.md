@@ -151,4 +151,16 @@ DI Providers
 - Value Providers (Objects as a service)
 - Factory
 
-7:41
+HttpClient , HttpClientModule, Proxy Service, HttpEventType
+
+RxJs 
+- RxJs gives you stream of data.
+- ShareDisplay Operator is a type of cache request.
+
+HttpInterceptors
+- Interceptors are listening between request and response
+
+APP_INITIALIZER
+- Load before app initialize
+
+--9:35
